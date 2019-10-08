@@ -1,4 +1,4 @@
-import React, { useState, useEffect }   from "react"
+import React from "react"
 import {WrapperImg, Img} from "./style"
 import { withRouter } from 'react-router'
 import { Link } from 'react-router-dom'
@@ -15,7 +15,6 @@ class ListImg extends React.Component {
 
 	async componentDidMount() {
 		const url = 'https://api.flickr.com/services/rest/?method=flickr.photos.getRecent&api_key=57f198356d2cef9345235fe1865b7da2&format=json&nojsoncallback=true'
-		console.log(url)
 		await fetch(url)
 		.then(response => response.json())
 		.then(data => this.setState({ allPhotos: data.photos.photo}));
